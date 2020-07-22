@@ -1112,7 +1112,7 @@
             ON client (server), mkdir TESTAS, put files scripts what ever u want. 
             git config --global user.name "name"
             git config --global user.email "email"
-            # After this will create dir .gitconfig
+            # After this will be created dir .gitconfig
             cd /Testas
             vim README.md
             git init
@@ -1122,5 +1122,18 @@
             git push -u origin master
             promt user/password
 
+        32.2 Using GIT
+            git clone https://gitserver/reponame    # To clone the contents of remote repository to your computer
+            git pull                                # To update the local repository to the latest commit
+            git diff <branch1> <branch2>            # To proview branch differences and see if there are any potential conflicts
+            git merge <brucnh>                      # To merge another branch in your active branch
+            
+            Modified files need to go through the staging process
+            git status                              # After changing files, use this command to see which files have changed
+            git add                                 # To add these files to the staging area
+            git rm <filename>                       # To remove files
+            #After that u can commit changes
+            git push origin master                  # To synchronize changes
+            git pull                                # From client, to update your current Git clone
 
-                    
+
