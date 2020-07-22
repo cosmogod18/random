@@ -1088,52 +1088,113 @@
 
 32. GIT (version control system)
         32.1 GIT
-            Git repository consists of three ress maintained by GIT
-            The working directory holds actual files
-            The Index acts as a staging area
-            The HEAD points to the last commit that was made
-            When working with Git, the 'git add' command is used to add files to the index
-            To commit these files, use 'git commit -m "commit message"' 
-            Use 'git add origin https://server/reponame' to connect to the remote repository
-            To complete the sequence, use 'git push origin master'. Replace 'master' with the actual branch you want to push changes to
+                Git repository consists of three ress maintained by GIT
+                The working directory holds actual files
+                The Index acts as a staging area
+                The HEAD points to the last commit that was made
+                When working with Git, the 'git add' command is used to add files to the index
+                To commit these files, use 'git commit -m "commit message"' 
+                Use 'git add origin https://server/reponame' to connect to the remote repository
+                To complete the sequence, use 'git push origin master'. Replace 'master' with the actual branch you want to push changes to
             
-            # Create the repository on you Git server
-            # Set you user information
-                git config --global user.name "You NAme"
-                git config --global user.email "EMAIl@Email.com"
-            # Create a local directory that contains a README.md file with some contents
-                git init                            # T o generate the Git repository metadata
-                git add <filename>                  # To add files to the staging area
-            # from there use 'git commit -m "commit mesg"' to commit the files. This will commit the files to HEAD, but not to the remote repository yet.
-                git remote add origin https://server/reponame
-                git push -u origin master           # To push files to remote repository
+                # Create the repository on you Git server
+                # Set you user information
+                    git config --global user.name "You NAme"
+                    git config --global user.email "EMAIl@Email.com"
+                # Create a local directory that contains a README.md file with some contents
+                    git init                            # T o generate the Git repository metadata
+                    git add <filename>                  # To add files to the staging area
+                # from there use 'git commit -m "commit mesg"' to commit the files. This will commit the files to HEAD, but not to the remote repository yet.
+                    git remote add origin https://server/reponame
+                    git push -u origin master           # To push files to remote repository
             
-            #EXAMPLE. Go to github.com, create user, than create repository for example TESTAS
-            ON client (server), mkdir TESTAS, put files scripts what ever u want. 
-            git config --global user.name "name"
-            git config --global user.email "email"
-            # After this will be created dir .gitconfig
-            cd /Testas
-            vim README.md
-            git init
-            git add *file-names
-            git commit -m "initial upload" (commited to HEAD )
-            git remote add origin https://github.com/USER/TESTAS
-            git push -u origin master
-            promt user/password
+                #EXAMPLE. Go to github.com, create user, than create repository for example TESTAS
+                ON client (server), mkdir TESTAS, put files scripts what ever u want. 
+                git config --global user.name "name"
+                git config --global user.email "email"
+                # After this will be created dir .gitconfig
+                cd /Testas
+                vim README.md
+                git init
+                git add *file-names
+                git commit -m "initial upload" (commited to HEAD )
+                git remote add origin https://github.com/USER/TESTAS
+                git push -u origin master
+                promt user/password
 
         32.2 Using GIT
-            git clone https://gitserver/reponame    # To clone the contents of remote repository to your computer
-            git pull                                # To update the local repository to the latest commit
-            git diff <branch1> <branch2>            # To proview branch differences and see if there are any potential conflicts
-            git merge <brucnh>                      # To merge another branch in your active branch
+                git clone https://gitserver/reponame    # To clone the contents of remote repository to your computer
+                git pull                                # To update the local repository to the latest commit
+                git diff <branch1> <branch2>            # To proview branch differences and see if there are any potential conflicts
+                git merge <brucnh>                      # To merge another branch in your active branch
             
-            Modified files need to go through the staging process
-            git status                              # After changing files, use this command to see which files have changed
-            git add                                 # To add these files to the staging area
-            git rm <filename>                       # To remove files
-            #After that u can commit changes
-            git push origin master                  # To synchronize changes
-            git pull                                # From client, to update your current Git clone
+                Modified files need to go through the staging process
+                git status                              # After changing files, use this command to see which files have changed
+                git add                                 # To add these files to the staging area
+                git rm <filename>                       # To remove files
+                #After that u can commit changes
+                git push origin master                  # To synchronize changes
+                git pull                                # From client, to update your current Git clone
+
+        32.3 Git Branches
+                Branches are used to develop new features in isolation from the main brach
+                The master branch is the default brach, others braches can be manually added
+                After completion, merge the branches back to the master
+
+                git checkout -b dev-brach               # To create a new branch and start using it
+                git push origin dev-brach               # to push the new branch to the remote repo
+                git checkout master                     # Switch back to the master branch
+                git brach -d dev-brach                  # To delete branch
+
+
+33. BASH POWERRRR BASIC :)
+        33.1 Shell script components
+                #!/bin/bash\|perl\|python
+                echo PrintWhatEverYouWant
+                read InputWhatEverYouWant
+                cat $DoWhatEverYouWant
+
+        33.2 Loops 
+                if .. then .. fi
+                while .. do .. done
+                until .. do .. done
+                case .. in .. esac
+                for .. in .. do .. done
+    
+                # Example
+                "man test"
+                echo $? - exit code in the last command
+                if [ -z $1 ]
+                then
+                echo "you dont have args"
+                exit 20
+                fi
+                echo "arg is $1"
+        
+        33.3 Adv ALMOST :D
+                counter=$1
+                counter=$(( counter * 60 ))           
+
+                function(){
+                        counter=$(( counter - 1 ))
+                        sleep 1
+                }
+                
+                while [ counter -gt 0 ]
+                do
+                echo you still have $counter seconds left
+                function
+                done
+
+                [ $counter = 0 ] && echo time is up $$ function
+                [ $counter = "-1" ] && echo you are one second late && function
+
+                while true
+                do
+                echo you now are ${counter#-} seconds late                          # #- removes - from the begning
+                function
+                done
+
+                
 
 
