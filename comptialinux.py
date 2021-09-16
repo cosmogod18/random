@@ -1,6 +1,6 @@
 # Created by Tomas Kaskelis
 # This file helps to prepare for Comptia-Linux+ certification :)
-# GOOD LOOK! 
+# GOOD LUCK M8! 
 
 
 
