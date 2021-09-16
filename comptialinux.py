@@ -1,3 +1,10 @@
+# Created by Tomas Kaskelis
+# This file helps to prepare for Comptia-Linux+ certification :)
+# GOOD LOOK! 
+
+
+
+
 1. Distributions 
 	1.1 Main distributions:
 			RedHat(RHEL)		Ubuntu(based on Debian)		SUSE	
